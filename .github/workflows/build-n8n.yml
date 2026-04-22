@@ -9,6 +9,10 @@ on:
         description: '拉取标签，格式: owner/repo@tag，例如: n8n-io/n8n@2.1.1'
         required: false
         default: ''
+      force_rebuild:
+        description: '是否强制重建并覆盖已存在镜像'
+        required: false
+        default: 'true'
 
 jobs:
   apply-patch:
@@ -138,6 +142,12 @@ jobs:
       - name: 检查n8n镜像是否已存在
         id: check-n8n-exists
         run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.force_rebuild }}" == "true" ]]; then
+            echo "手动触发且启用强制重建，n8n 不跳过"
+            echo "skip_build=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           if docker manifest inspect ghcr.io/${{ steps.lowercase.outputs.owner }}/n8n:${{ steps.package.outputs.image_tag }} > /dev/null 2>&1; then
             echo "n8n镜像已存在，跳过构建"
             echo "skip_build=true" >> $GITHUB_OUTPUT
@@ -149,6 +159,12 @@ jobs:
       - name: 检查runners镜像是否已存在
         id: check-runners-exists
         run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.force_rebuild }}" == "true" ]]; then
+            echo "手动触发且启用强制重建，runners 不跳过"
+            echo "skip_build=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           if docker manifest inspect ghcr.io/${{ steps.lowercase.outputs.owner }}/runners:${{ steps.package.outputs.image_tag }} > /dev/null 2>&1; then
             echo "runners镜像已存在，跳过构建"
             echo "skip_build=true" >> $GITHUB_OUTPUT

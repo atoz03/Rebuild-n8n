@@ -2,9 +2,9 @@
 
 > 🛠️ 一个基于 [n8n](https://n8n.io/) 的定制与重构版本。
 
-![License](https://img.shields.io/github/license/AliverAnme/Rebuild-n8n)
-![Languages](https://img.shields.io/github/languages/top/AliverAnme/Rebuild-n8n)
-![Last Commit](https://img.shields.io/github/last-commit/AliverAnme/Rebuild-n8n)
+![License](https://img.shields.io/github/license/atoz03/Rebuild-n8n)
+![Languages](https://img.shields.io/github/languages/top/atoz03/Rebuild-n8n)
+![Last Commit](https://img.shields.io/github/last-commit/atoz03/Rebuild-n8n)
 
 ---
 ## 使用
@@ -56,7 +56,7 @@ Rebuild-n8n/
 ## 📄 许可证
 
 本项目基于 MIT License 开源。
-版权所有 (c) 2025 AliverAnme
+版权所有 (c) 2025 atoz03
 详见 [LICENSE](./LICENSE) 文件。
 
 🙏 致谢

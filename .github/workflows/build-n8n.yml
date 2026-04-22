@@ -45,7 +45,7 @@ jobs:
           
           if [[ "$REFS" == *"@"* ]]; then
             REPO_PART=$(echo "$REFS" | cut -d'@' -f1)
-            TAG="${{ inputs.ref }}"  # 完整标签，包括前缀
+            TAG_PART=$(echo "$REFS" | cut -d'@' -f2-)
             
             if [[ "$REPO_PART" == *"/"* ]]; then
               REPO="$REPO_PART"
@@ -54,8 +54,8 @@ jobs:
             fi
             
             echo "repository=$REPO" >> $GITHUB_OUTPUT
-            echo "tag=$TAG" >> $GITHUB_OUTPUT
-            echo "解析结果: 仓库=$REPO, 标签=$TAG"
+            echo "tag=$TAG_PART" >> $GITHUB_OUTPUT
+            echo "解析结果: 仓库=$REPO, 标签=$TAG_PART"
           else
             echo "格式错误，请使用 仓库名@标签 格式"
             exit 1

@@ -2837,7 +2837,6 @@
     "settings.communityNodes.confirmModal.cancel": "取消",
     "settings.mcp": "实例级 MCP",
     "settings.mcp.description": "将 MCP 客户端（如 Claude Code 和 Cursor）连接到您的实例，以构建、运行和迭代工作流程",
-    "settings.mcp.preview.tooltip": "此功能目前处于预览阶段，预计未来会有改进和变动。",
     "settings.mcp.header.toggle.enabled": "已启用",
     "settings.mcp.header.toggle.disabled": "已禁用",
     "settings.mcp.actionBox.heading": "连接AI助手以构建和运行工作流",
